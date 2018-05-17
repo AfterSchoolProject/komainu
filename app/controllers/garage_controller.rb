@@ -3,7 +3,7 @@ class GarageController < ApplicationController
   def index; end
 
   def create
-    api = GarageAPI.new
-    api.open
+    pubsub = PubSub.new
+    pubsub.publish('open', to_channel: 'garage')
   end
 end
