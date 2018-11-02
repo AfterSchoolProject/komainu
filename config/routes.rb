@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
-  root to: 'login#index'
+  use_doorkeeper
+  devise_for :users
 
-  resources :login, only: [:index, :create]
-  resources :garage
+  # For testing purposes
+  root 'home#index'
 end
